@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- 配置SpringMVC -->
+
+	<!-- 激活@Required @Autowired.JSR 250's@PostConstruct,@PreDestory and @Resource 
+		等标注 -->
+	<context:annotation-config />
+
+	<!-- 定义全局编码防止乱码 ，此标签必须放在mvc:annotation-driven之前否则无效 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=utf-8</value>
+							<value>text/html;charset=UTF-8</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 开启SpringMVC注解模式 -->
+	<mvc:annotation-driven />
+
+	<mvc:default-servlet-handler />
+
+	<!-- 扫描web相关的bean -->
+	<context:component-scan base-package="com.manager.controllers">
+		<!-- 制定扫包规则 ,只扫描使用@Controller注解的JAVA类 -->
+		<!-- <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
+	</context:component-scan>
+
+	<!-- 配置jsp 显示ViewResolver -->
+	<bean id="viewResolverJsp"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<!-- 配置前缀 -->
+		<property name="prefix" value="/views/" />
+		<!-- 配置后缀 -->
+		<property name="suffix" value=".jsp" />
+		<!-- 优先级 -->
+		<property name="order" value="1" />
+	</bean>
+</beans>

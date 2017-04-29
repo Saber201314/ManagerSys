@@ -42,9 +42,7 @@ public class springMvcController {
 	
 	@RequestMapping("/Page01")
 	public String GetPage1(){
-		
 		String pageName = "index";
-		
 		
 		return pageName;
 	}

@@ -1,25 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.jtSpring.demo</groupId>
-	<artifactId>springDemo</artifactId>
-	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>springDemo Maven Webapp</name>
-
-	<properties>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.managers.utils</groupId>
+  <artifactId>ManagerSys</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>ManagerSys Maven Webapp</name>
+  
+  	<properties>
 		<spring.version>4.1.7.RELEASE</spring.version>
 	</properties>
-	<dependencies>
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-		</dependency>
-
-
-		<!--1:日志，java日志：slf4j,log4j,logback,common-logging 使用：slf4j+logBack -->
+	
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!--1:日志，java日志：slf4j,log4j,logback,common-logging 使用：slf4j+logBack -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -223,8 +223,8 @@
 			<artifactId>okio</artifactId>
 			<version>1.11.0</version>
 		</dependency>
-	</dependencies>
-	<build>
+  </dependencies>
+  <build>
 		<plugins>
 			<!-- define the project compile level -->
 			<plugin>
@@ -244,7 +244,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>springDemo</finalName>
+		<finalName>ManagerSys</finalName>
 	</build>
 </project>
-
