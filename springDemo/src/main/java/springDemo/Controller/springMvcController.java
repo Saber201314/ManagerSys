@@ -27,7 +27,7 @@ public class springMvcController {
 	@RequestMapping("/holloMvc")
 	public String helloMvc(Model model){
 		List<User> listAll = service.listAll();
-		List<User> listByName = service.listByName("张三");
+		List<User> listByName = service.listByName("李四");
 		model.addAttribute("users", listAll);
 		model.addAttribute("users2", listByName);
 		return "index";
