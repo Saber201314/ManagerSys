@@ -5,13 +5,22 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.spring.annotation.MapperScan;
 
-import com.manager.entitys.User;
+import com.manager.entitys.crawlerUser;
 
 
 @MapperScan
 public interface LoginDao {
 
-	List<User> selectAll();
+	/**
+	 * 查询所有用户
+	 * @return
+	 */
+	List<crawlerUser> selectAll();
 	
-	List<User> findByName(@Param("user")User user );
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
+	List<crawlerUser> findByName(@Param("user")crawlerUser user );
 }

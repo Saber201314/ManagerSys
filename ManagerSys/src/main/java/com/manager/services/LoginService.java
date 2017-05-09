@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.manager.dao.LoginDao;
-import com.manager.entitys.User;
+import com.manager.entitys.crawlerUser;
 
 @Service
 public class LoginService {
@@ -17,16 +17,23 @@ public class LoginService {
 	LoginDao logindao;
 	
 	/**
-	 * 登录验证
-	 * @return 是否登录成功
+	 * 查询用户信息
+	 * @return 用户信息集合
 	 */
-	public List<User> loginRegex(){
+	public List<crawlerUser> loginRegex(){
 		
-		List<User> users = logindao.selectAll();
-		System.out.println(JSON.toJSON(users));
-		System.out.println("Login Regex");
+		List<crawlerUser> users = logindao.selectAll();
 		
 		return users;
 	}
 	
+	/**
+	 * 根据名称查询用户信息
+	 * @param user
+	 * @return
+	 */
+	public List<crawlerUser> findByName(crawlerUser user){
+		
+		return logindao.findByName(user);
+	}
 }

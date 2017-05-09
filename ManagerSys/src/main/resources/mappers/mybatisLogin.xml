@@ -4,12 +4,10 @@
 
 <mapper namespace="com.manager.dao.LoginDao">
 
-	<select id="selectAll" resultType="User">
-	
-		select *  from user
-	
+	<select id="selectAll" resultType="crawlerUser">
+		select *  from crawlerUser
 	</select>
-	<select id="findByName"  resultType="User">
-		select *  from user where name = #{user.name}
+	<select id="findByName"  resultType="crawlerUser">
+		select *  from crawlerUser where userName = #{user.userName} and userPwd = #{user.userPwd}
 	</select>
 </mapper>

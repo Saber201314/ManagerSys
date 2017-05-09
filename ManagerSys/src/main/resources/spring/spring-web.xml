@@ -58,4 +58,12 @@
 		<!-- 优先级 -->
 		<property name="order" value="1" />
 	</bean>
+
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*" />
+			<bean class="com.manager.controllers.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
