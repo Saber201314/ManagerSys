@@ -11,5 +11,10 @@ import springDemo.domain.User;
 public interface UserMapper {
 	List<User> selectAll();
 	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	List<User> findByName(@Param("user")User user );
 }
